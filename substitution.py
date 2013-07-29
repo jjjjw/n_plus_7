@@ -12,7 +12,6 @@ def find_subs(targets: "set", words: "list", n=7):
         except:
             continue
 
-        i = words.index(target)
         step = int(fmod(i + n, word_len))
         replacement = words[step]
         yield (target, replacement)

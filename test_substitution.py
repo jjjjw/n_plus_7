@@ -1,14 +1,12 @@
 import unittest
 
-
 class TestSubsitutionFunctions(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         import os
 
         words = open('words')
-        cls.word_list = words.read().splitlines()
-        cls.word_list.sort()
+        cls.word_list = sorted(words.read().splitlines())
         words.close()
         cls.sample_targets = frozenset(["sky", "Zyzzogeton", "skylarker",])
 
