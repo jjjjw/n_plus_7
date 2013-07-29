@@ -2,8 +2,6 @@ def find_subs(targets: "set", words: "list", n=7):
     """Using the provided word dictionary and target set, yields a tuple (target_word, target_word + n).
 
     """
-    from math import fmod
-
     word_len = len(words)
 
     for target in targets:
@@ -12,7 +10,7 @@ def find_subs(targets: "set", words: "list", n=7):
         except:
             continue
 
-        step = int(fmod(i + n, word_len))
+        step = i + n % word_len
         replacement = words[step]
         yield (target, replacement)
 
