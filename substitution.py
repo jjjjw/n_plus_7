@@ -18,8 +18,8 @@ def find_subs(targets: "set", words: "list", n=7):
         yield (target, replacement)
 
 
-def perf_subs(text: "string", subs: "generator"):
-    """Performs substitutions on the text, using the generated (target, replacement) tuples,
+def perf_subs(text: "string", subs: "list"):
+    """Performs substitutions on the text, using the listed (target, replacement) tuples,
     returns a transformed copy of the text.
 
     """

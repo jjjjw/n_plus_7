@@ -35,7 +35,7 @@ class TestSubsitutionFunctions(unittest.TestCase):
         """
         from substitution import perf_subs
 
-        res_gen = [("sky", "skylarker"), ("skylarker", "skyphos"),]  # Dynamically equivalent to a generator
+        res_gen = [("sky", "skylarker"), ("skylarker", "skyphos"),]
 
         res = perf_subs("The sky is a skylarker.", res_gen)
         self.assertEqual(res, "The skylarker is a skyphos.")
