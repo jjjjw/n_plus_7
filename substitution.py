@@ -1,18 +1,33 @@
-def find_subs(targets: "set", word_list: "list", n=7):
-    """Using the provided word list and target set, yields a tuple (target_word, target_word + n).
+def make_word_dict(word_list: "list"):
+    """Returns a beastly alphabetically ordered dict of the words.
+    TODO: rabbit hole of case insensitivity
 
     """
-    from itertools import cycle
+    from collections import OrderedDict
 
-    subs = {}
+    # word_list = [w.lower() for w in word_list]
+    word_list.sort()
+    word_range = range(len(word_list))
+    return OrderedDict(zip(word_list, word_range))
 
-    for i, word in enumerate(cycle(word_list)):
-        if word in targets:
-            subs[i + n] = word
 
-        target = subs.get(i)
-        if target is not None:
-            yield (target, word)
+def find_subs(targets: "set", word_dict: "ordereddict", n=7):
+    """Using the provided word dictionary and target set, yields a tuple (target_word, target_word + n).
+
+    """
+    from math import fmod
+
+    words = list(word_dict)
+    word_len = len(words)
+
+    for target in targets:
+        i = word_dict.get(target)
+        if i is None:
+            continue
+
+        step = int(fmod(i + n, word_len))
+        replacement = words[step]
+        yield (target, replacement)
 
 
 def perf_subs(text: "string", subs: "generator"):
