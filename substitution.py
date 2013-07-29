@@ -1,30 +1,18 @@
-def make_word_dict(word_list: "list"):
-    """Returns a beastly alphabetically ordered dict of the words.
-    TODO: rabbit hole of case insensitivity
-
-    """
-    from collections import OrderedDict
-
-    # word_list = [w.lower() for w in word_list]
-    word_list.sort()
-    word_range = range(len(word_list))
-    return OrderedDict(zip(word_list, word_range))
-
-
-def find_subs(targets: "set", word_dict: "ordereddict", n=7):
+def find_subs(targets: "set", words: "list", n=7):
     """Using the provided word dictionary and target set, yields a tuple (target_word, target_word + n).
 
     """
     from math import fmod
 
-    words = list(word_dict)
     word_len = len(words)
 
     for target in targets:
-        i = word_dict.get(target)
-        if i is None:
+        try:
+            i = words.index(target)
+        except:
             continue
 
+        i = words.index(target)
         step = int(fmod(i + n, word_len))
         replacement = words[step]
         yield (target, replacement)

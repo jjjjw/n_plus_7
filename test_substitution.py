@@ -5,12 +5,11 @@ class TestSubsitutionFunctions(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         import os
-        from substitution import make_word_dict
 
         words = open('words')
-        word_list = words.read().splitlines()
+        cls.word_list = words.read().splitlines()
+        cls.word_list.sort()
         words.close()
-        cls.word_dict = make_word_dict(word_list)
         cls.sample_targets = frozenset(["sky", "Zyzzogeton", "skylarker",])
 
     def test_find_subs(self):
@@ -20,7 +19,7 @@ class TestSubsitutionFunctions(unittest.TestCase):
         """
         from substitution import find_subs
 
-        res_gen = find_subs(self.sample_targets, self.word_dict)
+        res_gen = find_subs(self.sample_targets, self.word_list)
         res_map = {}
 
         for target, replacement in res_gen:
