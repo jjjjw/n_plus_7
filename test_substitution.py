@@ -1,6 +1,7 @@
 import unittest
+from unittest import TestCase
 
-class TestSubsitutionFunctions(unittest.TestCase):
+class TestSubsitutionFunctions(TestCase):
     @classmethod
     def setUpClass(cls):
         import os
