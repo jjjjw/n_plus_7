@@ -1,4 +1,3 @@
-import unittest
 from unittest import TestCase
 
 class TestSubsitutionFunctions(TestCase):
@@ -41,4 +40,6 @@ class TestSubsitutionFunctions(TestCase):
 
 
 if __name__ == '__main__':
+    import unittest
+
     unittest.main()
