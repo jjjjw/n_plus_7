@@ -1,6 +1,7 @@
 def find_subs(targets: "set", words: "list", n=7):
     """Using the provided word dictionary and target set, yields a tuple (target_word, target_word + n).
 
+    TODO: fake POS with a noun only dictionary.
     """
     word_len = len(words)
 
