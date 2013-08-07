@@ -1,10 +1,13 @@
+from substitution import find_subs
+from substitution import perf_subs
 from unittest import TestCase
+import os
+import unittest
+
 
 class TestSubsitutionFunctions(TestCase):
     @classmethod
     def setUpClass(cls):
-        import os
-
         words = open('words')
         cls.word_list = sorted(words.read().splitlines())
         words.close()
@@ -15,8 +18,6 @@ class TestSubsitutionFunctions(TestCase):
         if need be.
 
         """
-        from substitution import find_subs
-
         res_gen = find_subs(self.sample_targets, self.word_list)
         res_map = {}
 
@@ -31,8 +32,6 @@ class TestSubsitutionFunctions(TestCase):
         """It should return a text with the appropriate replacements, and one replacement per word.
 
         """
-        from substitution import perf_subs
-
         res_gen = [("sky", "skylarker"), ("skylarker", "skyphos"),]
 
         res = perf_subs("The sky is a skylarker.", res_gen)
@@ -40,6 +39,4 @@ class TestSubsitutionFunctions(TestCase):
 
 
 if __name__ == '__main__':
-    import unittest
-
     unittest.main()

@@ -1,3 +1,7 @@
+from string import Template
+import re
+
+
 def find_subs(targets: "set", words: "list", n=7):
     """Using the provided word dictionary and target set, yields a tuple (target_word, target_word + n).
 
@@ -21,9 +25,6 @@ def perf_subs(text: "string", subs: "list"):
     returns a transformed copy of the text.
 
     """
-    from string import Template
-    import re
-
     tmpl_map = {}
     tmpl_text = text.strip()  # Copy the string
 
