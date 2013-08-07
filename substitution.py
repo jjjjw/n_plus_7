@@ -1,8 +1,8 @@
+from re import sub
 from string import Template
-import re
 
 
-def find_subs(targets: "set", words: "list", n=7):
+def find_subs(targets: set, words: list, n: int = 7) -> tuple:
     """Using the provided word dictionary and target set, yields a tuple (target_word, target_word + n).
 
     TODO: fake POS with a noun only dictionary.
@@ -20,7 +20,7 @@ def find_subs(targets: "set", words: "list", n=7):
         yield (target, replacement)
 
 
-def perf_subs(text: "string", subs: "list"):
+def perf_subs(text: str, subs: list) -> str:
     """Performs substitutions on the text, using the listed (target, replacement) tuples,
     returns a transformed copy of the text.
 
@@ -32,7 +32,7 @@ def perf_subs(text: "string", subs: "list"):
         r_target = r"\b%s\b" % target
         tmpl_target = "$" + target
         tmpl_map[target] = replacement
-        tmpl_text = re.sub(r_target, tmpl_target, tmpl_text)
+        tmpl_text = sub(r_target, tmpl_target, tmpl_text)
 
     tmpl = Template(tmpl_text)
     transformed_text = tmpl.substitute(tmpl_map)
