@@ -1,6 +1,5 @@
 from substitution import find_subs
 from substitution import perf_subs
-from unittest import main
 from unittest import TestCase
 
 
@@ -38,4 +37,6 @@ class TestSubsitutionFunctions(TestCase):
 
 
 if __name__ == '__main__':
+    from unittest import main
+
     main()

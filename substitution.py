@@ -5,7 +5,6 @@ from string import Template
 def find_subs(targets: set, words: list, n: int = 7) -> tuple:
     """Using the provided word dictionary and target set, yields a tuple (target_word, target_word + n).
 
-    TODO: fake POS with a noun only dictionary.
     """
     word_len = len(words)
 
@@ -17,6 +16,7 @@ def find_subs(targets: set, words: list, n: int = 7) -> tuple:
 
         step = i + n % word_len
         replacement = words[step]
+
         yield (target, replacement)
 
 
@@ -36,4 +36,5 @@ def perf_subs(text: str, subs: list) -> str:
 
     tmpl = Template(tmpl_text)
     transformed_text = tmpl.substitute(tmpl_map)
+
     return transformed_text
