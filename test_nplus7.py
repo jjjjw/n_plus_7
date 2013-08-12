@@ -7,10 +7,10 @@ class TestSubsitutionFunctions(TestCase):
     def setUpClass(cls):
         cls.sample_sentence = "The sky above the port was the color of television, tuned to a dead channel."
         cls.sample_output = "Theban skylarker abracadabra theanthropist portague washableness theanthropist colorant offcut television, tunemaker toadery aba deader channel."
-        cls.nplus7 = NPlus7()
+        cls.n_plus_7 = NPlus7()
 
     def test_n_plus_7(self):
-        res = self.nplus7(self.sample_sentence)
+        res = self.n_plus_7(self.sample_sentence)
         self.assertEqual(res, self.sample_output)
 
 
