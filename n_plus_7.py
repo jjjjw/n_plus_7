@@ -9,9 +9,8 @@ class NPlus7():
 
         """
         if not hasattr(self, '_word_list'):
-            words = open('words')  # TODO: nouns only
-            self._word_list = sorted(words.read().splitlines())
-            words.close()
+            with open('words') as words:  # TODO: nouns only
+                self._word_list = sorted(words.read().splitlines())
 
         return self._word_list
 
