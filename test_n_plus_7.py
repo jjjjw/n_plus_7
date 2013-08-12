@@ -1,4 +1,4 @@
-from nplus7 import NPlus7
+from n_plus_7 import NPlus7
 from unittest import TestCase
 
 
