@@ -2,7 +2,7 @@ from re import sub
 from string import Template
 
 
-def find_subs(targets: set, words: list, n: int = 7) -> tuple:
+def find_subs(targets: set, words: list, n: int) -> tuple:
     """Using the provided word dictionary and target set, yields a tuple (target_word, target_word + n).
 
     """

@@ -2,7 +2,7 @@ from nplus7 import NPlus7
 from unittest import TestCase
 
 
-class TestAPI(TestCase):
+class TestNPlus7(TestCase):
     @classmethod
     def setUpClass(cls):
         cls.sample_sentence = "The sky above the port was the color of television, tuned to a dead channel."

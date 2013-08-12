@@ -16,7 +16,7 @@ class TestSubsitutionFunctions(TestCase):
         if need be.
 
         """
-        res_gen = find_subs(self.sample_targets, self.word_list)
+        res_gen = find_subs(self.sample_targets, self.word_list, 7)
         res_map = {}
 
         for target, replacement in res_gen:
