@@ -2,7 +2,7 @@ from nplus7 import NPlus7
 from unittest import TestCase
 
 
-class TestSubsitutionFunctions(TestCase):
+class TestAPI(TestCase):
     @classmethod
     def setUpClass(cls):
         cls.sample_sentence = "The sky above the port was the color of television, tuned to a dead channel."
