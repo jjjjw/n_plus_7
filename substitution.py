@@ -29,7 +29,7 @@ def perf_subs(text: str, subs: list) -> str:
     tmpl_text = text.strip()  # Copy the string
 
     for target, replacement in subs:
-        r_target = r"\b%s\b" % target
+        r_target = r"\b{}\b".format(target)
         tmpl_target = "$" + target
         tmpl_map[target] = replacement
         tmpl_text = sub(r_target, tmpl_target, tmpl_text)
